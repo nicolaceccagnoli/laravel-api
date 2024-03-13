@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 // Models
 use App\Models\Project;
 
-
 class ProjectController extends Controller
 {
     //Dobbiamo recuperare i dati del DB ed esporli pubblicamente
@@ -24,5 +23,17 @@ class ProjectController extends Controller
             'message' => 'success',
             'results' => $projects
         ]);
+    }
+
+    public function show(string $slug) {
+
+        $project = Project::where('slug', $slug)->firstOrFail();
+
+        return response()->json([  
+            'code' => 200,                                
+            'message' => 'success',
+            'results' => $project
+        ]);
+
     }
 }
