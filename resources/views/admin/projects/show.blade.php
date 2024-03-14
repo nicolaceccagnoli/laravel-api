@@ -36,7 +36,7 @@
                     @if ($project->cover_img != null)
                         <div class="mb-3">
 
-                            <img src="{{ asset('storage/'.$project->cover_img) }}" alt="{{ $project->title }}">
+                            <img src="{{ $project->full_cover_img }}" alt="{{ $project->title }}">
 
                         </div>
                     @endif
