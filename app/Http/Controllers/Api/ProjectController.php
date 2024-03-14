@@ -19,21 +19,30 @@ class ProjectController extends Controller
                     ->paginate(3);                        // Imposot la paginazione per mostrare 3 risultati in ogni pagina
 
         return response()->json([  
-            'code' => 200,                                // Restituisco la lista di tutti i projects nel mio DB
-            'message' => 'success',
+            'success' => true,
             'results' => $projects
         ]);
     }
 
     public function show(string $slug) {
 
-        $project = Project::where('slug', $slug)->firstOrFail();
+        $project = Project::with('type', 'technologies')
+                    ->where('slug', $slug)
+                    ->first();
 
-        return response()->json([  
-            'code' => 200,                                
-            'message' => 'success',
-            'results' => $project
-        ]);
+        if ($project != null) {
+
+            return response()->json([  
+                'success' => true,
+                'results' => $project
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => false,
+                'results' => null
+            ]);
+        }
 
     }
 }
