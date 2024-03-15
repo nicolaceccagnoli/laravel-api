@@ -5,6 +5,19 @@
 @section('main-content')
     <section id="contacts-index">
         <div class="row g-0">
+
+            <form action="{{ route('admin.contacts.index') }}" method="GET">
+                <div class="input-group my-3">
+                    <span class="input-group-text">Cerca per Nome</span>
+                    <input type="text" aria-label="First name" class="form-control" id="name" name="name" value="{{ request()->input('name') }}">
+                    <span class="input-group-text">Cerca per Mail</span>
+                    <input type="text" aria-label="Last name" class="form-control" id="email" name="email" value="{{ request()->input('email') }}">
+                    <button type="submit" class="btn btn-primary">
+                        Cerca
+                    </button>    
+                </div>
+            </form>
+
             @foreach ($contacts as $contact)
                 <div class="d-flex justify-content-center col-12 col-xs-6 col-sm-4 col-md-3 mb-3">
                     <div class="my-card m-1">
