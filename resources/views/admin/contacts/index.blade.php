@@ -16,10 +16,10 @@
                             <p>
                                 {{ $contact->message }}
                             </p>
-{{-- 
-                            <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}" class="show-button align-self-baseline">
+            
+                            <a href="{{ route('admin.contacts.show', ['contact' => $contact->id]) }}" class="show-button align-self-baseline">
                                 Mostra
-                            </a> --}}
+                            </a>
                         </div>
                     </div>
                 </div>
