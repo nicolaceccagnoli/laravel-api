@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\Typecontroller as AdminTypeController;
 use App\Http\Controllers\Admin\Technology;
 use App\Http\Controllers\TechnologyController as GuestTechnologyController;
-
+use App\Http\Controllers\Admin\ContactController;
 
 
 
@@ -68,6 +68,12 @@ Route::prefix('admin')
     Route::resource('types', AdminTypeController::class);
 
     Route::resource('technologies', TechnologyController::class);
+
+    Route::resource('contacts', ContactController::class)->only([
+        'index',
+        'show',
+        'destroy'
+    ]);
 });
 
 require __DIR__.'/auth.php';

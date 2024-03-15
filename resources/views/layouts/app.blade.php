@@ -34,6 +34,10 @@
                         <li>
                             <a href="{{ route('admin.technologies.index') }}">Le tecnologie che utilizziamo</a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.contacts.index') }}">Contatti</a>
+                        </li>
+
                     </li>
                 </ul>
 
